@@ -83,7 +83,8 @@ void mark(Object* object) {
 
 void markAll(VM* vm)
 {
-  for (int i = 0; i < vm->stackSize; i++) {
+  int i ;
+  for ( i = 0; i < vm->stackSize; i++) {
     mark(vm->stack[i]);
   }
 }
@@ -224,13 +225,13 @@ void test4() {
 void perfTest() {
   printf("Performance Test.\n");
   VM* vm = newVM();
-
-  for (int i = 0; i < 1000; i++) {
-    for (int j = 0; j < 20; j++) {
+  int i,j,k;
+  for ( i = 0; i < 1000; i++) {
+    for ( j = 0; j < 20; j++) {
       pushInt(vm, i);
     }
 
-    for (int k = 0; k < 20; k++) {
+    for ( k = 0; k < 20; k++) {
       pop(vm);
     }
   }
